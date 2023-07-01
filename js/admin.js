@@ -19,7 +19,7 @@ const addCategory = () => $.ajax({
     data: JSON.stringify({
         name: $("#category-name").val()
     }),
-}).then(location.reload).catch(alert)
+}).done(location.reload).fail(error => alert(JSON.stringify(error)))
 
 const updateCategory = (id) => $.ajax({
     url: `${config.category_api}/${id}`,
@@ -31,7 +31,7 @@ const updateCategory = (id) => $.ajax({
     data: JSON.stringify({
         name: $(`#category-name-${id}`).val()
     }),
-}).then(location.reload).catch(alert)
+}).done(location.reload).fail(error => alert(JSON.stringify(error)))
 
 const deleteCategory = (id) => $.ajax({
     url: `${config.category_api}/${id}`,
@@ -40,7 +40,7 @@ const deleteCategory = (id) => $.ajax({
         "Content-Type": "application/json",
         "Authorization": `Bearer ${localStorage.getItem("token")}`
     },
-}).then(location.reload).catch(alert)
+}).done(location.reload).fail(error => alert(JSON.stringify(error)))
 
 const getBooks = () => $.ajax({
     url: config.book_api,
@@ -51,22 +51,20 @@ const getBooks = () => $.ajax({
     },
 })
 
-const addBook = () => {
-    $.ajax({
-        url: config.book_api,
-        type: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${localStorage.getItem("token")}`
-        },
-        data: JSON.stringify({
-            title: $("#book-title").val(),
-            author: $("#book-author").val(),
-            content: $("#book-content").val(),
-            categoryId: $("#book-category").val()
-        }),
-    }).then(location.reload).catch(alert)
-}
+const addBook = () => $.ajax({
+    url: config.book_api,
+    type: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${localStorage.getItem("token")}`
+    },
+    data: JSON.stringify({
+        title: $("#book-title").val(),
+        author: $("#book-author").val(),
+        content: $("#book-content").val(),
+        categoryId: $("#book-category").val()
+    }),
+}).done(location.reload).fail(error => alert(JSON.stringify(error)))
 
 const updateBook = (id) => $.ajax({
     url: `${config.book_api}/${id}`,
@@ -81,7 +79,7 @@ const updateBook = (id) => $.ajax({
         content: $(`#book-content-${id}`).val(),
         categoryId: $(`#book-category-${id}`).val()
     }),
-}).then(location.reload).catch(alert)
+}).done(location.reload).fail(error => alert(JSON.stringify(error)))
 
 const deleteBook = (id) => $.ajax({
     url: `${config.book_api}/${id}`,
@@ -90,7 +88,7 @@ const deleteBook = (id) => $.ajax({
         "Content-Type": "application/json",
         "Authorization": `Bearer ${localStorage.getItem("token")}`
     },
-}).then(location.reload).catch(alert)
+}).done(location.reload).fail(error => alert(JSON.stringify(error)))
 
 $(document).ready(async () => {
     if (localStorage.getItem("role") != "Admin") {
