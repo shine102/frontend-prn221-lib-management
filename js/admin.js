@@ -124,7 +124,7 @@ $(document).ready(async () => {
                 <input type="text" id="book-author-${book.id}" value="${book.author}">
             </td>
             <td>
-                <input type="text" id="book-content-${book.id}" value="${book.content}">
+                <textarea id="book-content-${book.id}" cols="50" rows="1">${book.content}</textarea>
             </td>
             <td>
                 <select id="book-category-${book.id}">
