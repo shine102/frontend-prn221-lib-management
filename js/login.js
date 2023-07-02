@@ -15,8 +15,9 @@ $(document).ready(() => {
                 localStorage.setItem("token", data.token)
                 localStorage.setItem("username", $("#username").val())
                 localStorage.setItem("phone", data.phone)
+                localStorage.setItem("role", data.role)
                 if (data.role == "Admin") {
-                    window.location.href = "admin-panel.html"
+                    window.location.href = "admin.html"
                 } else {
                     window.location.href = "index.html"
                 }
