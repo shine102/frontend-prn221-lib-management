@@ -9,6 +9,7 @@ const getCategories = () => $.ajax({
     },
 })
 
+
 const addCategory = () => $.ajax({
     url: config.category_api,
     type: "POST",
@@ -19,7 +20,7 @@ const addCategory = () => $.ajax({
     data: JSON.stringify({
         name: $("#category-name").val()
     }),
-}).done(() => location.reload()).fail(error => alert(JSON.stringify(error)))
+}).done(location.reload).fail(error => alert(JSON.stringify(error)))
 
 const updateCategory = (id) => $.ajax({
     url: `${config.category_api}/${id}`,
@@ -31,7 +32,7 @@ const updateCategory = (id) => $.ajax({
     data: JSON.stringify({
         name: $(`#category-name-${id}`).val()
     }),
-}).done(() => location.reload()).fail(error => alert(JSON.stringify(error)))
+}).done(location.reload).fail(error => alert(JSON.stringify(error)))
 
 const deleteCategory = (id) => $.ajax({
     url: `${config.category_api}/${id}`,
@@ -40,7 +41,7 @@ const deleteCategory = (id) => $.ajax({
         "Content-Type": "application/json",
         "Authorization": `Bearer ${localStorage.getItem("token")}`
     },
-}).done(() => location.reload()).fail(error => alert(JSON.stringify(error)))
+}).done(location.reload).fail(error => alert(JSON.stringify(error)))
 
 const getBooks = () => $.ajax({
     url: config.book_api,
@@ -64,7 +65,8 @@ const addBook = () => $.ajax({
         content: $("#book-content").val(),
         categoryId: $("#book-category").val()
     }),
-}).done(() => location.reload()).fail(error => alert(JSON.stringify(error)))
+}).done(location.reload).fail(error => alert(JSON.stringify(error)))
+
 
 const updateBook = (id) => $.ajax({
     url: `${config.book_api}/${id}`,
@@ -79,7 +81,7 @@ const updateBook = (id) => $.ajax({
         content: $(`#book-content-${id}`).val(),
         categoryId: $(`#book-category-${id}`).val()
     }),
-}).done(() => location.reload()).fail(error => alert(JSON.stringify(error)))
+}).done(location.reload).fail(error => alert(JSON.stringify(error)))
 
 const deleteBook = (id) => $.ajax({
     url: `${config.book_api}/${id}`,
@@ -88,16 +90,40 @@ const deleteBook = (id) => $.ajax({
         "Content-Type": "application/json",
         "Authorization": `Bearer ${localStorage.getItem("token")}`
     },
-}).done(() => location.reload()).fail(error => alert(JSON.stringify(error)))
+}).done(location.reload).fail(error => alert(JSON.stringify(error)))
 
 $(document).ready(async () => {
     if (localStorage.getItem("role") != "Admin") {
         location.href = "index.html"
     }
 
-    var categories = await getCategories()
+    var categories = [
+        {
+            id: 1,
+            name: "Category 1"
+        },
+        {
+            id: 2,
+            name: "Category 2"
+        },
+    ]
 
-    var books = await getBooks()
+    var books = [
+        {
+            id: 1,
+            title: "Book 1",
+            author: "Author 1",
+            content: "Content 1",
+            categoryId: 1
+        },
+        {
+            id: 2,
+            title: "Book 2",
+            author: "Author 2",
+            content: "Content 2",
+            categoryId: 2
+        },
+    ]
 
     $("#book-category").html(categories.map((category) => `<option value="${category.id}">${category.name}</option>`))
 
@@ -124,7 +150,7 @@ $(document).ready(async () => {
                 <input type="text" id="book-author-${book.id}" value="${book.author}">
             </td>
             <td>
-                <textarea id="book-content-${book.id}" cols="50" rows="1">${book.content}</textarea>
+                <input type="text" id="book-content-${book.id}" value="${book.content}">
             </td>
             <td>
                 <select id="book-category-${book.id}">
