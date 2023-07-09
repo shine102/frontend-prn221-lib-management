@@ -39,9 +39,9 @@ const loadDataToView = (data) => {
 
 const loadCommentToView = (data) => {
     var subData = data;
-    // if (data.length > 5) {
-    //     subData = data.slice(data.length - 6, data.length - 1);
-    // }
+    if (data.length > 5) {
+        subData = data.slice(data.length - 6, data.length);
+    }
     $("#comment_field").html(subData.map((comment) => `
 <div class="card p-3 mt-2">
 
@@ -83,7 +83,7 @@ const postComment = () => $.ajax({
     contentType: false
 }).done(setTimeout(function(){
     ReloadComment();
-}, 2000)).fail(error => alert(JSON.stringify(error)))
+}, 1000)).fail(error => alert(JSON.stringify(error)))
 
 const ReloadComment = () => {
     var bookId = localStorage.getItem("CurrentBookId");
