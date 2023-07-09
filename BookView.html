@@ -1,44 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.7.0.min.js"
-		integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-	<script src="js/index.js"></script>
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="js/book_view.js"></script>
 </head>
-<body>
-    <h1 class="display-3 text-center">Software Architecture and Design illumminated</h1>
-    <iframe src="https://drive.google.com/file/d/1hlOOsbz0CZXykLOWwWnno7YvoU2QPqn3/preview" width="50%" height="900px" style="display: block; margin-left: auto;margin-right: auto;margin-top: 30px;"></iframe>
 
-    <div style="display: block;margin-left: auto;margin-right: auto; width: 50%;">
-        <h4 class="display-6">Book comment</h4>
-        <div style="background-color: rgb(129, 179, 179); width: 40%; margin-top: 5%;" class="comment_field rounded">
-            <div class="name">Nguyen Quang Khai :</div>
-            <div class="content">
-                <span style="display: block; margin-left: 50px; ">sach nay hay day</span>
+<body>
+    <h1 id="book_title" class="display-3 text-center">Test</h1>
+    <iframe id="bookSource" src="test" width="50%" height="900px"
+        style="display: block; margin-left: auto;margin-right: auto;margin-top: 30px;"></iframe>
+
+    <div class="container mt-5">
+
+        <div class="row  d-flex justify-content-center">
+            <div class="headings col-md-8">
+                <h5>Book comments</h5>
             </div>
-        </div>
-        <div style="background-color: rgb(129, 179, 179); width: 40%; margin-top: 5%;" class="comment_field rounded">
-            <div class="name">Nguyen Quang Khai :</div>
-            <div class="content">
-                <span style="display: block; margin-left: 50px;">sach nay hay day</span>
+
+            <div id="comment_field" class="col-md-8">
+
             </div>
-        </div>
-        <div style="background-color: rgb(129, 179, 179); width: 40%; margin-top: 5%;" class="comment_field rounded">
-            <div class="name">Nguyen Quang Khai :</div>
-            <div class="content">
-                <span style="display: block; margin-left: 50px;">sach nay hay day</span>
+
+            <div class="coment-bottom bg-white p-2 px-4 col-md-8">
+                <div class="d-flex flex-row add-comment-section mt-4 mb-4"><input id="content" type="text"
+                        class="form-control mr-3" placeholder="Add comment">
+                    <button onclick="postComment()" id="comment_btn" style="margin-left: 2%;" class="btn btn-primary"
+                        type="button">Comment</button>
+                </div>
+
             </div>
+
         </div>
-    
 
     </div>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-		crossorigin="anonymous"></script>
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    
+
 </body>
+
 </html>
