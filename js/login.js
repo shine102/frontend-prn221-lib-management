@@ -1,3 +1,5 @@
+import config from "./config.js"
+
 $(document).ready(() => {
     $("#login").click(() => {
         var data = {
@@ -5,7 +7,7 @@ $(document).ready(() => {
             "password": $("#password").val()
         }
         $.ajax({
-            url: "http://139.59.115.128/api/Auth/login",
+            url: config.login_api,
             type: "POST",
             data: JSON.stringify(data),
             headers: {
