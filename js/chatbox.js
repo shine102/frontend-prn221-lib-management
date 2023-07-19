@@ -56,8 +56,8 @@ $(document).ready(function () {
                         $('#msgBody').append(html)
                     } else {
                         var html = `<div style=' padding-left: 150px'>
-                        <p style='text-align: right;max-width:500px;height:auto;color:#12160b;background-color:#e0e0e0; word-wrap:break-word; display:inline-block;
-                                    padding:5px; width:70%;'>${element.content}</p>
+                        <p style='text-align: left;max-width:500px;height:auto;color:#12160b;background-color:#e0e0e0; word-wrap:break-word; display:inline-block;
+                                    padding:5px; width:100%;'>${element.content}</p>
                         </div>`
                         $('#msgBody').append(html)
                     }
