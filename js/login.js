@@ -21,7 +21,7 @@ $(document).ready(() => {
                 if (data.role == "Admin") {
                     window.location.href = "admin.html"
                 } else {
-                    window.location.href = "index.html"
+                    window.location.href = "Home.html"
                 }
             },
             error: (err) => {

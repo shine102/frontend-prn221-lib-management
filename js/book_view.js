@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    if (localStorage.getItem("role") != "User" && localStorage.getItem("role") != "Admin") {
+    if (localStorage.getItem("role") != "Student" && localStorage.getItem("role") != "Admin") {
         location.href = "Login.html"
     }
     getBook();
