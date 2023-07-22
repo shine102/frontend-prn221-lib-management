@@ -14,6 +14,20 @@ const getBooks = () => $.ajax({
 })
 
 
+const searchBooks = (title, author, categoryId, page) => {
+    let url = `${config.book_api}/Search?page=${page}&pageSize=${config.pageSize}`
+
+    if (title) url += `&title=${title}`
+    if (author) url += `&author=${author}`
+    if (categoryId) url += `&categoryId=${categoryId}`
+
+    return $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+    })
+}
+
 const addBook = (data) => $.ajax({
     url: config.book_api,
     type: "POST",
@@ -39,6 +53,7 @@ const deleteBook = (id) => $.ajax({
 
 export default {
     getBooks,
+    searchBooks,
     addBook,
     updateBook,
     deleteBook

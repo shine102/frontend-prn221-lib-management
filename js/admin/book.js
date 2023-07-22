@@ -120,7 +120,7 @@ const loadBooks = async (categories) => {
 }
 
 
-$(document).ready(async () => {
+$(document).ready(() => {
     if (localStorage.getItem("role") != "Admin") {
         location.href = "/index.html"
     }
