@@ -1,15 +1,15 @@
 import book_api from "./api/book_api.js"
-import { getParam } from "./utils.js"
+import { getQuery } from "./utils.js"
 
 $(document).ready(async () => {
     if (!localStorage.getItem("role")) {
         location.href = "/login.html"
     }
 
-    const title = getParam("title")
-    const author = getParam("author")
-    const category = getParam("category")
-    const page = getParam("page") || 1;
+    const title = getQuery("title")
+    const author = getQuery("author")
+    const category = getQuery("category")
+    const page = getQuery("page") || 1;
 
     const books = await book_api.searchBooks(title, author, category, page);
 
