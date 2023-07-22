@@ -35,5 +35,4 @@ $(document).ready(async () => {
     }
 
     loadAllUser()
-
 })
