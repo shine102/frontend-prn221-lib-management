@@ -7,14 +7,14 @@ const headers = {
 }
 
 
-const getCategories = () => $.ajax({
-    url: config.category_api,
+const getAllCategories = () => $.ajax({
+    url: `${config.category_api}/GetAll`,
     type: "GET",
     headers: headers,
 })
 
 
-const addCategory = (data) => $.ajax({
+const createCategory = (data) => $.ajax({
     url: config.category_api,
     type: "POST",
     headers: headers,
@@ -38,8 +38,8 @@ const deleteCategory = (id) => $.ajax({
 
 
 export default {
-    getCategories,
-    addCategory,
+    getAllCategories,
+    createCategory,
     updateCategory,
     deleteCategory
 }

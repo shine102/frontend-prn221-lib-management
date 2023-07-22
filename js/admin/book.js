@@ -1,13 +1,13 @@
-import  book_api from "../api/book_api.js"
-import  category_api from "../api/category_api.js"
+import book_api from "../api/book_api.js"
+import category_api from "../api/category_api.js"
 
 
 const loadCategories = async () => {
 
-    const getCategories = category_api.getCategories
+    const getAllCategories = category_api.getAllCategories
 
-    const addCategory = () => category_api
-        .addCategory({
+    const createCategory = () => category_api
+        .createCategory({
             name: $(`#category-name`).val(),
         })
         .done(() => location.reload())
@@ -25,7 +25,7 @@ const loadCategories = async () => {
         .done(() => location.reload())
         .fail(error => alert(JSON.stringify(error)))
 
-    const categories = await getCategories()
+    const categories = await getAllCategories()
 
     $("#categories").prepend(categories.map((category) => `
             <tr>
@@ -40,7 +40,7 @@ const loadCategories = async () => {
             </tr>
         `))
 
-    $("#add-category").click(addCategory)
+    $("#add-category").click(createCategory)
     categories.forEach((category) => {
         $(`#update-category-${category.id}`).click(() => updateCategory(category.id))
         $(`#delete-category-${category.id}`).click(() => deleteCategory(category.id))
@@ -52,10 +52,10 @@ const loadCategories = async () => {
 
 const loadBooks = async (categories) => {
 
-    const getBooks = book_api.getBooks
+    const getAllBooks = book_api.getAllBooks
 
-    const addBook = () => book_api
-        .addBook({
+    const createBook = () => book_api
+        .createBook({
             title: $("#book-title").val(),
             image: $("#book-image").val(),
             author: $("#book-author").val(),
@@ -81,7 +81,7 @@ const loadBooks = async (categories) => {
         .done(() => location.reload())
         .fail(error => alert(JSON.stringify(error)))
 
-    const books = await getBooks()
+    const books = await getAllBooks()
 
     $("#book-category").html(categories.map((category) => `<option value="${category.id}">${category.name}</option>`))
 
@@ -112,7 +112,7 @@ const loadBooks = async (categories) => {
         </tr>
     `))
 
-    $("#add-book").click(addBook)
+    $("#add-book").click(createBook)
     books.forEach((book) => {
         $(`#update-book-${book.id}`).click(() => updateBook(book.id))
         $(`#delete-book-${book.id}`).click(() => deleteBook(book.id))

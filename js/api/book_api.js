@@ -7,19 +7,29 @@ const headers = {
 }
 
 
-const getBooks = () => $.ajax({
-    url: config.book_api,
+const getAllBooks = () => $.ajax({
+    url: `${config.book_api}/GetAll`,
+    type: "GET",
+    headers: headers,
+})
+
+
+const countAllBooks = () => $.ajax({
+    url: `${config.book_api}/CountAll`,
     type: "GET",
     headers: headers,
 })
 
 
 const searchBooks = (title, author, categoryId, page) => {
-    let url = `${config.book_api}/Search?page=${page}&pageSize=${config.pageSize}`
+    const url = new URL(`${config.book_api}/Search`)
 
-    if (title) url += `&title=${title}`
-    if (author) url += `&author=${author}`
-    if (categoryId) url += `&categoryId=${categoryId}`
+    url.searchParams.set('page', page)
+    url.searchParams.set('pageSize', config.pageSize)
+
+    if (title) url.searchParams.set('title', title);
+    if (author) url.searchParams.set('author', author);
+    if (categoryId) url.searchParams.set('categoryId', categoryId);
 
     return $.ajax({
         url: url,
@@ -28,7 +38,26 @@ const searchBooks = (title, author, categoryId, page) => {
     })
 }
 
-const addBook = (data) => $.ajax({
+
+const countBooks = (title, author, categoryId) => {
+    const url = new URL(`${config.book_api}/Count`)
+
+    if (title) url.searchParams.set('title', title);
+    if (author) url.searchParams.set('author', author);
+    if (categoryId) url.searchParams.set('categoryId', categoryId);
+
+    return $.ajax({
+        url: url,
+        type: "GET",
+        headers: headers,
+    })
+}
+
+const getPageCount = (title, author, categoryId) => {
+    return countBooks(title, author, categoryId).then(count => Math.ceil(count / config.pageSize))
+}
+
+const createBook = (data) => $.ajax({
     url: config.book_api,
     type: "POST",
     headers: headers,
@@ -52,9 +81,12 @@ const deleteBook = (id) => $.ajax({
 
 
 export default {
-    getBooks,
+    getAllBooks,
+    countAllBooks,
     searchBooks,
-    addBook,
+    countBooks,
+    getPageCount,
+    createBook,
     updateBook,
     deleteBook
 }
