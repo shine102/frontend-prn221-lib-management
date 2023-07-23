@@ -18,7 +18,7 @@ const config = {
 
     get send_message() { return `${this.api_root}/Chat/sendMessage` },
 
-    get pageSize() { return 5 },
+    get pageSize() { return 6 },
 }
 
 export default config

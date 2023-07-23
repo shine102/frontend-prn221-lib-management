@@ -28,17 +28,17 @@ const loadCategories = async () => {
     const categories = await getAllCategories()
 
     $("#categories").prepend(categories.map((category) => `
-            <tr>
-                <th scope="row">${category.id}</td>
-                <td>
-                    <input type="text" id="category-name-${category.id}" value="${category.name}">
-                </td>
-                <td>
-                    <button id="update-category-${category.id}" class="btn btn-primary">Update</button>
-                    <button id="delete-category-${category.id}" class="btn btn-danger">Delete</button>
-                </td>
-            </tr>
-        `))
+        <tr>
+            <th scope="row">${category.id}</td>
+            <td>
+                <input type="text" id="category-name-${category.id}" value="${category.name}">
+            </td>
+            <td>
+                <button id="update-category-${category.id}" class="btn btn-success">Update</button>
+                <button id="delete-category-${category.id}" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    `))
 
     $("#add-category").click(createCategory)
     categories.forEach((category) => {
@@ -106,7 +106,7 @@ const loadBooks = async (categories) => {
                 </select>
             </td>
             <td>
-                <button id="update-book-${book.id}" class="btn btn-primary">Update</button>
+                <button id="update-book-${book.id}" class="btn btn-success">Update</button>
                 <button id="delete-book-${book.id}" class="btn btn-danger">Delete</button>
             </td>
         </tr>

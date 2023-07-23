@@ -31,7 +31,7 @@ var loadDataUserForView = (data) => {
 
 $(document).ready(async () => {
     if (localStorage.getItem("role") != "Admin") {
-        location.href = "index.html"
+        location.href = "/index.html"
     }
 
     loadAllUser()

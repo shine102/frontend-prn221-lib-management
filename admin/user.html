@@ -10,7 +10,7 @@
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <script src="/js/admin/book.js" type="module"></script>
+  <script src="/js/admin/user.js" type="module"></script>
 </head>
 
 <body>
@@ -18,51 +18,22 @@
 
     <h1 class="text-center">Admin</h1>
 
-    <h2 class="text-center">Categories</h2>
+    <h2 class="text-center">User</h2>
 
     <table class="table">
       <thead>
         <tr>
           <th scope="col">Id</th>
-          <th scope="col">Name</th>
-          <th scope="col"></th>
+          <th scope="col">User Name</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">CredentialCode</th>
         </tr>
       </thead>
-      <tbody id="categories">
+      <tbody id="users">
         <tr>
           <th scope="row"></th>
-          <td>
-            <input type="text" id="category-name">
-          </td>
-          <td>
-            <button class="btn btn-success" id="add-category">Add</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h2 class="text-center">Books</h2>
-
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Id</th>
-          <th scope="col">Title</th>
-          <th scope="col">Image</th>
-          <th scope="col">Author</th>
-          <th scope="col">Content</th>
-          <th scope="col">Category</th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody id="books">
-        <tr>
-          <th scope="row"></th>
-          <td>
+          <!-- <td>
             <input type="text" id="book-title">
-          </td>
-          <td>
-            <input type="text" id="book-image">
           </td>
           <td>
             <input type="text" id="book-author">
@@ -75,8 +46,8 @@
             </select>
           </td>
           <td>
-            <button class="btn btn-success" id="add-book">Add</button>
-          </td>
+            <button class="btn btn-primary" id="add-book">Add</button>
+          </td> -->
         </tr>
       </tbody>
     </table>
