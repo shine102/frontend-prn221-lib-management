@@ -1,11 +1,7 @@
-import config from "./config.js"
+import config from "./api/config.js"
 
 
 $(document).ready(() => {
-    var data = {
-        "userId": localStorage.getItem("id"),
-    }
-
     // get user id
     $.ajax({
         url: config.user_by_username + localStorage.getItem("username"),
@@ -21,7 +17,9 @@ $(document).ready(() => {
             alert(err.statusText)
         }
     })
-
+    var data = {
+        "userId": localStorage.getItem("id"),
+    }
     $.ajax({
         url: config.all_chat,
         type: "POST",
