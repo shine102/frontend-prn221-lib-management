@@ -1,5 +1,5 @@
 const loadAllUser = () => $.ajax({
-    url: "https://localhost:7125/Api/User/All",
+    url: "http://139.59.115.128/Api/User/All",
     type: "GET",
     headers: {
         "Content-Type": "application/json",
@@ -30,7 +30,7 @@ var loadDataUserForView = (data) => {
 }
 
 const DeleteUser =(id) => $.ajax({
-    url: `https://localhost:7125/Api/User?id=${id}`,
+    url: `http://139.59.115.128/Api/User?id=${id}`,
     type: "DELETE",
     headers: {
         "Content-Type": "application/json",
@@ -40,7 +40,7 @@ const DeleteUser =(id) => $.ajax({
 })
 
 const UpdateUser =(id) => $.ajax({
-    url: `https://localhost:7125/Api/User`,
+    url: `http://139.59.115.128/Api/User`,
     type: "PUT",
     headers: {
         "Content-Type": "application/json",
@@ -54,7 +54,7 @@ const UpdateUser =(id) => $.ajax({
 })
 
 const CreateUser = () => $.ajax({
-    url: `https://localhost:7125/Api/User`,
+    url: `http://139.59.115.128/Api/User`,
     type: "POST",
     headers: {
         "Content-Type": "application/json",

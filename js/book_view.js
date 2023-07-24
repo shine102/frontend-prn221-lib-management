@@ -13,7 +13,7 @@ const getBook = () => {
 }
 
 const getBookById = (id) => $.ajax({
-    url: `http://139.59.115.128/api/Books/${id}`,
+    url: `http://139.59.115.128/Api/Book/${id}`,
     type: "GET",
     headers: {
         "Content-Type": "application/json",
@@ -23,7 +23,7 @@ const getBookById = (id) => $.ajax({
 });
 
 const getCommentOfBook = (id) => $.ajax({
-    url: `http://139.59.115.128/api/Comment?bookID=${id}`,
+    url: `http://139.59.115.128/Api/Comment?bookID=${id}`,
     type: "GET",
     headers: {
         "Content-Type": "application/json",
@@ -68,7 +68,7 @@ const loadCommentToView = (data) => {
 }
 
 const postComment = () => $.ajax({
-    url: `http://139.59.115.128/api/Comment`,
+    url: `http://139.59.115.128/Api/Comment`,
     type: "POST",
     headers: {
         "Content-Type": "application/json",
