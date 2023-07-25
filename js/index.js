@@ -51,7 +51,7 @@ $(document).ready(async () => {
         const _categories = categories.filter(category => category.id == book.categoryId);
         const _category = _categories.length > 0 ? _categories[0].name : ""
         return `
-            <div class="col-4 border border-dark border-1">
+            <div class="col-sm-12 col-md-6 col-lg-4 border border-dark border-1">
                 <p><img src="${book.image}" class="img-fluid"></p>
                 <h3 class="text-center">${book.title}</h3>
                 <p>Author: ${book.author}</p>
