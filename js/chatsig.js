@@ -46,10 +46,6 @@ function joinPrivateChat(chatId) {
     console.log("Joined private chat with " + userId);
 }
 
-function leave(){
-    leavePrivateChat(chatId);
-    window.location.href = "chat.html";
-}
 
 function leavePrivateChat(chatId) {
     connection.invoke("LeavePrivateChat", chatId).catch(err => console.error(err.toString()));
