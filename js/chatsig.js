@@ -1,6 +1,7 @@
 "use strict";
-import getdata from "./getData.js";
-const connection = new signalR.HubConnectionBuilder().withUrl("http://localhost:5126/chathub").withAutomaticReconnect().build();
+import getdata from "./getdata.js";
+import config from "./api/config.js";
+const connection = new signalR.HubConnectionBuilder().withUrl(config.chatHub).withAutomaticReconnect().build();
 var chatId = getdata("chatid");
 var userId = localStorage.getItem("id");
 var partnerId = getdata("partnerid");

@@ -1,4 +1,4 @@
-import getdata from "./getData.js";
+import getdata from "./getdata.js";
 import config from "./api/config.js";
 
 $(document).ready(function () {

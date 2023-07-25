@@ -1,6 +1,6 @@
 const config = {
 
-    get api_root() { return "http://localhost:5126/Api" },
+    get api_root() { return "http://localhost/Api" },
 
     get book_api() { return `${this.api_root}/Book` },
 
@@ -19,6 +19,8 @@ const config = {
     get send_message() { return `${this.api_root}/Chat/SendMessage` },
 
     get pageSize() { return 6 },
+
+    get chatHub() {return `${this.api_root}/chathub`}
 }
 
 export default config
