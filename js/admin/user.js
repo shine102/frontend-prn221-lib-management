@@ -48,7 +48,7 @@ const UpdateUser =(id) => $.ajax({
     },
     data: JSON.stringify({
         "id": id,
-        "phoneNumber": document.getElementById(`phonenumber-${id}`)
+        "phoneNumber": document.getElementById(`phonenumber-${id}`).value
     }),
     success: ()=> location.reload()
 })

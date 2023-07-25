@@ -1,10 +1,6 @@
 const config = {
 
-<<<<<<< HEAD
     get api_root() { return "http://139.59.115.128/Api" },
-=======
-    get api_root() { return "http://localhost/Api" },
->>>>>>> 8c7b503cb6fb3e07df4024adffcc7b78c4e2a632
 
     get book_api() { return `${this.api_root}/Book` },
 
