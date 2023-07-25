@@ -8,7 +8,7 @@ $(document).ready(() => {
 
 
 const getUserProfile = (name) => $.ajax({
-    url: `http://139.59.115.128/api/User?username=${name}`,
+    url: `http://139.59.115.128/api/User?name=${name}`,
     type: "GET",
     headers: {
         "Content-Type": "application/json",
@@ -26,7 +26,7 @@ const loadDataToView = (data) => {
 }
 
 const updateProfile = () => $.ajax({
-    url: `http://139.59.115.128/api/User/phone`,
+    url: `http://139.59.115.128/Api/User`,
     type: "PUT",
     headers: {
         "Content-Type": "application/json",
