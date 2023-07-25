@@ -13,6 +13,7 @@ const getUserProfile = (name) => $.ajax({
     headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${localStorage.getItem("token")}`
+       
     },
     success: (data) => loadDataToView(data)
 });

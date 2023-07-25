@@ -22,7 +22,7 @@ var loadDataUserForView = (data) => {
             <input type="text" readonly="readonly" id="book-content-${user.id}" value="${user.credentialCode}">
         </td>
         <td>
-            <button onclick="UpdateUser(${user.id}) id="update-user-${user.id}" class="btn btn-primary">Update</button>
+            <button onclick="UpdateUser(${user.id})" id="update-user-${user.id}" class="btn btn-primary">Update</button>
             <button onclick="DeleteUser(${user.id})" id="delete-user-${user.id}" class="btn btn-danger">Delete</button>
         </td>
     </tr>
@@ -36,7 +36,7 @@ const DeleteUser =(id) => $.ajax({
         "Content-Type": "application/json",
         "Authorization": `Bearer ${localStorage.getItem("token")}`
     },
-    success: (data)=> loadDataUserForView(data)
+    success: ()=>location.reload()
 })
 
 const UpdateUser =(id) => $.ajax({
@@ -50,7 +50,7 @@ const UpdateUser =(id) => $.ajax({
         "id": id,
         "phoneNumber": document.getElementById(`phonenumber-${id}`)
     }),
-    success: (data)=> loadDataUserForView(data)
+    success: ()=> location.reload()
 })
 
 const CreateUser = () => $.ajax({
@@ -66,7 +66,7 @@ const CreateUser = () => $.ajax({
         "phoneNumber": document.getElementById("input_phone").value,
         "credentialCode": document.getElementById("input_code").value
     }),
-    success: (data)=> loadDataUserForView(data)
+    success: ()=> location.reload()
 })
 
 
