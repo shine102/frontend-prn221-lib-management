@@ -20,7 +20,7 @@ const config = {
 
     get pageSize() { return 6 },
 
-    get chatHub() {return `http://139.59.115.128/chathub`}
+    get chatHub() {return `${this.api_root}/chathub`}
 }
 
 export default config
