@@ -74,8 +74,8 @@ const CreateUser = () => $.ajax({
 
 $(document).ready(async () => {
     if (localStorage.getItem("role") != "Admin") {
-        location.href = "/index.html"
+        location.href = "Login.html"
+    } else{
+        loadAllUser();
     }
-
-    loadAllUser()
 })

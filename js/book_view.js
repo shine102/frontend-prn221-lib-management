@@ -5,8 +5,10 @@ $(document).ready(() => {
     getBook();
 })
 
+const url = new URL(location.href)
+const bookId = url.searchParams.get("id")
+
 const getBook = () => {
-    var bookId = localStorage.getItem("CurrentBookId");
     getBookById(bookId);
     getCommentOfBook(bookId);
 
@@ -76,7 +78,7 @@ const postComment = () => $.ajax({
     },
     data: JSON.stringify({
         content: $(`#content`).val(),
-        bookId: parseInt(localStorage.getItem("CurrentBookId")),
+        bookId: bookId,
         username: localStorage.getItem("username")
     }),
     processData: false,
@@ -86,7 +88,7 @@ const postComment = () => $.ajax({
 }, 1000)).fail(error => alert(JSON.stringify(error)))
 
 const ReloadComment = () => {
-    var bookId = localStorage.getItem("CurrentBookId");
+    var bookId = url.searchParams.get("id");
     getCommentOfBook(bookId);
 }
 

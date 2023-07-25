@@ -56,7 +56,7 @@ $(document).ready(async () => {
                 <h3 class="text-center">${book.title}</h3>
                 <p>Author: ${book.author}</p>
                 <p>Category: ${_category}</p>
-                <p><a href="" class="btn btn-outline-success">Read</a></p>
+                <p><a href="/BookView.html?id=${book.id}" class="btn btn-outline-success">Read</a></p>
             </div>
         `
     }))
