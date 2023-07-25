@@ -1,6 +1,7 @@
 "use strict";
-import getdata from "./getData.js";
-const connection = new signalR.HubConnectionBuilder().withUrl("http://localhost:5126/chathub").withAutomaticReconnect().build();
+import getdata from "./getdata.js";
+import config from "./api/config.js";
+const connection = new signalR.HubConnectionBuilder().withUrl(config.chatHub).withAutomaticReconnect().build();
 var chatId = getdata("chatid");
 var userId = localStorage.getItem("id");
 var partnerId = getdata("partnerid");
@@ -45,10 +46,6 @@ function joinPrivateChat(chatId) {
     console.log("Joined private chat with " + userId);
 }
 
-function leave(){
-    leavePrivateChat(chatId);
-    window.location.href = "chat.html";
-}
 
 function leavePrivateChat(chatId) {
     connection.invoke("LeavePrivateChat", chatId).catch(err => console.error(err.toString()));
