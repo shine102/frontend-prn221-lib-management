@@ -19,9 +19,9 @@ $(document).ready(() => {
                 localStorage.setItem("phone", data.phone)
                 localStorage.setItem("role", data.role)
                 if (data.role == "Admin") {
-                    window.location.href = "admin.html"
+                    window.location.href = "/admin.html"
                 } else {
-                    window.location.href = "Home.html"
+                    window.location.href = "/index.html"
                 }
             },
             error: (err) => {

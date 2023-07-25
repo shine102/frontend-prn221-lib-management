@@ -1,40 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Box</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
     <script src="js/chatbox.js" type="module"></script>
 </head>
+
 <body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">FBT Library</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="/index.html">Home</a>
+                    <a class="nav-item nav-link active" href="/chat.html">Chat</a>
+                    <a class="nav-item nav-link" href="/UserProfile.html">Profile</a>
+                    <a class="nav-item nav-link" href="/logout.html">Logout</a>
+                </div>
+            </div>
+        </nav>
+    </header>
     <div style="width: 600px;margin: 40px auto;">
         <div class="container"><br>
             <div>
                 <h2 class="text-center" id="fullname"></h2><br>
             </div>
-            <div class="modal-body" id="msgBody" style="height:400px; background-color:#d0f0cd; overflow-y: scroll; overflow-x: hidden;">
-                
+            <div class="modal-body" id="msgBody"
+                style="height:400px; background-color:#d0f0cd; overflow-y: scroll; overflow-x: hidden;">
+
             </div>
-                <div class="modal-footer">
-                    <div class="row" style="width:570px;">
-                        <div>
-                            <textarea id="message" class="form-control" style="height:70px;width:500px"></textarea>
-                            <button class="btn btn-success btn-block" id="send">Send</button>
-                        </div>
-                        
+            <div class="modal-footer">
+                <div class="row" style="width:570px;">
+                    <div>
+                        <textarea id="message" class="form-control" style="height:70px;width:500px"></textarea>
+                        <button class="btn btn-success btn-block" id="send">Send</button>
                     </div>
+
                 </div>
+            </div>
         </div>
-        <button onclick="window.location.href='chat.html'" type="submit" class="btn btn-success btn-block">Back to My Message</button>
+        <button onclick="window.location.href='chat.html'" type="submit" class="btn btn-success btn-block">Back to My
+            Message</button>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.9/signalr.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.9/signalr.js"></script>
-    <script src="/js/chatsig.js" type="module"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.9/signalr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.9/signalr.js"></script>
+<script src="/js/chatsig.js" type="module"></script>
+
 </html>
